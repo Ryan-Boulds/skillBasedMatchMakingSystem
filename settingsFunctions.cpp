@@ -44,10 +44,10 @@ void createDefaultSettingsFile() {
 	createSettingsFile.close();
 }
 
-//WIP
+
 void settingsUsageList() {
 
-	cout << "\nSettings List:\n"
+	cout << "Settings List:\n"
 		<< "antiboosting <true/false>\n"
 		<< "randomstartingmmr <true/false>\n"
 		<< "ranklossprevention <true/false>\n"
@@ -71,20 +71,31 @@ void settingsUsageList() {
 void listOfSimulations() {
 
 	cout << "simulate <option> - Run simulations." << endl;
-	cout << "     simulate help - Show help with simulations." << endl;
-	cout << "     simulate normal/standard - Run normal simulation." << endl;
-	cout << "     simulate singleplayer - Run simulation for single games." << endl;
-	cout << "     simulate slow - Run slow simulation." << endl;
+	cout << "     <help> - Show help with simulations." << endl;
+	cout << "     <normal> or <standard> - Run normal simulation." << endl;
+	cout << "     <singleplayer> -Run simulation for single games." << endl;
+	cout << "     <slow> - This will simulate one match at a time." << endl;
 
 }
 
 void listOfSimulationDemos() {
-	cout << "simulatedemo <#> - This will test the matchmaking algorithm." << endl;
-	cout << "     simulatedemo help - Show help with simulationdemos." << endl;
-	cout << "     simulatedemo 0 - Manually test wins and losses entering 1 for wins and 0 for losses." << endl;
-	cout << "     simulatedemo 1 - Shows individual player data results from randomly generated match results. Win rates are 50%." << endl;
-	cout << "     simulatedemo 2 - Same as test 1, but tallies final results over time with 10,000 players per cycle." << endl;
+	cout << "simulatedemo <#> -This will test the matchmaking algorithm." << endl;
+	cout << "     help - Show help with simulationdemos." << endl;
+	cout << "     <0> - Manually test wins and losses entering 1 for wins and 0 for losses." << endl;
+	cout << "     <1> - Shows individual player data results from randomly generated match results. Win rates are 50%." << endl;
+	cout << "     <2> - Same as test 1, but tallies final results over time with 10,000 players per cycle.\n\n";
 
+}
+
+void setOptions() {
+	cout << "set <parameter> <value>\n"
+		<< "     <settings> See the current settings\n"
+		<< "     <help> - displays Help for how to use set.\n"
+		<< "     <list> - Show the settings list and useage.\n"
+		<< "     <reset> - Resets settings back to the default with confirmation.\n"
+		<< "     <variable_name> <integer> - If the variable is an i value, you can change the integer value.\n"
+		<< "     <variable_name> <true/false or 1/0> - If the variable is an b value, you can change the boolean value.\n\n";
+		
 }
 
 //This function shows information to the user by showing a list of commands to control the program.
@@ -94,11 +105,11 @@ void listOfMainCommands() {
 		<< "clear - Clear the console.\n"
 		<< "close - This will close the window and end the program.\n"
 		<< "help - Show the list of commands\n"
-		<< "settings - This will let you see what the value of each setting holds.\n"
-		<< "set <setting parameter> <T/F> or <integer> - Change the settings\n";
+		<< "settings - This will let you see what the value of each setting holds.\n";
+	setOptions();
 	listOfSimulations();
 	listOfSimulationDemos();
-	cout << "sql - This command was not completed for the senior project due date.\n\n";
+	cout << "testingsql - This command was not completed for the senior project due date.\n\n";
 }
 
 
@@ -278,4 +289,41 @@ int setSettings(string userInput) {
 	cout << "Settings:\n" << settingsFileContentsToString() << endl;
 
 	return 0;
+}
+
+
+
+
+void setOptions(string command) {
+
+	string theRestOfCommand = command;
+	if (theRestOfCommand.empty()) {
+		setOptions();
+		cout << "\nset ";
+		cin >> theRestOfCommand;
+	}
+
+
+
+	if (theRestOfCommand == "help" || theRestOfCommand == "") {
+		system("cls");
+		setOptions();
+	}
+	else if (theRestOfCommand == "list") {
+		system("cls");
+		settingsUsageList();
+	}
+	else if (theRestOfCommand == "currentsettings") {
+		system("cls");
+		cout << settingsFileContentsToString() << endl;
+	}
+	else {
+		system("cls");
+		// Change the settings
+		setSettings(theRestOfCommand);
+	}
+
+
+
+
 }

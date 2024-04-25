@@ -9,9 +9,15 @@
 
 using namespace std;
 
+void setOptions(string command);
+
 void createDefaultSettingsFile();
 
 void listOfSimulations();
+
+void settingsUsageList();
+
+void setOptions();
 
 void listOfSimulationDemos();
 

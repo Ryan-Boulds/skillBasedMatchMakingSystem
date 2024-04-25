@@ -16,6 +16,7 @@
 #include "createPlayerData.h"
 #include "whichTeamWins.h"
 #include "musicThemes.h"
+#include "oldDemos.h"
 
 using namespace std;
 
@@ -346,3 +347,43 @@ void matchmakeAndTally(bool slowMode) {
     system("cls");
 }
 
+void handleSimulateSubCommand(const string& command, bool rankLossPrevention, bool streakBonusEnabled) {
+    string theRestOfCommand = command;
+    if (theRestOfCommand.empty()) {
+        listOfSimulations();
+        cout << "\nsimulate ";
+        cin >> theRestOfCommand;
+    }
+
+    // Check if input is "help" after user input
+    if (theRestOfCommand == "help") {
+        system("cls");
+        listOfSimulations();
+        cout << endl;
+        //  waitForUserToClearTerminal();
+        return; // Return to exit function
+    }
+
+    // Other conditions for different simulations
+    if (theRestOfCommand == "slow") {
+        // Run slow simulation
+        matchmakeAndTally(true);
+        system("cls");
+    }
+    else if (theRestOfCommand == "normal" || theRestOfCommand == "standard") {
+        // Run normal simulation
+        matchmakeAndTally(false);
+    }
+    else if (theRestOfCommand == "singleplayer" || theRestOfCommand == "single player") {
+        // Run simulation for single games
+        simulationSimulationsSimpleDemo(0, rankLossPrevention, streakBonusEnabled);
+        system("cls");
+    }
+    else {
+        // Invalid input
+        system("cls");
+        cout << "\nError!!!\nInvalid input!\n";
+        listOfSimulations();
+        cout << endl;
+    }
+}

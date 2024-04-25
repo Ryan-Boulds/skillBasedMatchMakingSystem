@@ -21,46 +21,12 @@
 
 using namespace std;
 
-void handleSimulateSubCommand(const string& command, bool rankLossPrevention, bool streakBonusEnabled) {
-    string theRestOfCommand = command;
-    if (theRestOfCommand.empty()) {
-        listOfSimulations();
-        cout << "\nsimulate ";
-        cin >> theRestOfCommand;
-    }
 
-    // Check if input is "help" after user input
-    if (theRestOfCommand == "help") {
-        system("cls");
-        listOfSimulations();
-        cout << endl;
-        //  waitForUserToClearTerminal();
-        return; // Return to exit function
-    }
 
-    // Other conditions for different simulations
-    if (theRestOfCommand == "slow") {
-        // Run slow simulation
-        matchmakeAndTally(true);
-        system("cls");
-    }
-    else if (theRestOfCommand == "normal" || theRestOfCommand == "standard") {
-        // Run normal simulation
-        matchmakeAndTally(false);
-    }
-    else if (theRestOfCommand == "singleplayer" || theRestOfCommand == "single player") {
-        // Run simulation for single games
-        simulationSimulationsSimpleDemo(0, rankLossPrevention, streakBonusEnabled);
-        system("cls");
-    }
-    else {
-        // Invalid input
-        system("cls");
-        cout << "\nError!!!\nInvalid input!\n";
-        listOfSimulations();
-        cout << endl;
-    }
-}
+
+
+
+
 
 // Main function where you can control the program and what functions are run
 int main() {
@@ -68,7 +34,6 @@ int main() {
     checkIfSettingsFileExists();
     bool infiniteLoop = true;
     bool errorPreventionNeeded = false;
-    cout << "Type \"help\" to see the commands available" << endl;
     while (infiniteLoop) {
         string command;
         vector<string> separatedStrings;
@@ -80,6 +45,9 @@ int main() {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
         errorPreventionNeeded = false;
+
+        //helpful information"
+        cout << "Type \"help\" to see the commands available" << endl;
 
         // Get input from the user
         cout << "What command would you like to run? ";
@@ -120,8 +88,8 @@ int main() {
         }
         else if (firstWordOfCommand == "set") {
             system("cls");
-            // Change the settings
-            setSettings(theRestOfCommand);
+            setOptions(theRestOfCommand);
+            errorPreventionNeeded = true;
         }
         else if (firstWordOfCommand == "simulatedemo") {
             system("cls");
@@ -136,10 +104,12 @@ int main() {
             errorPreventionNeeded = true;
 
         }
-        else if (firstWordOfCommand == "sql") {
+        else if (firstWordOfCommand == "testingsql") {
             // This was not able to be completed for the senior project due date.
-            cout << "\nI was not able to get this done due to time.\nSo, this is just for figuring out how to write to a database in C++.\n\n";
-            cout << testMain();
+            system("cls");
+            cout << "\nI was not able to get this done, as I ran out of time.\nThis is just for figuring out how to write to a database in C++.\n\n";
+            cout << "The code to even enter the function for sql is commented out since it will just crash unless you type '0'";
+            //cout << testMain();
             waitForUserToClearTerminal();
         }
         else if (std::all_of(command.begin(), command.end(), [](char c) { return std::isspace(c); })) {

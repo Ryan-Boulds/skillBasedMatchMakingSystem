@@ -15,6 +15,8 @@ void updateTeamStats(vector<vector<int>>& team, bool winStatus);
 
 void matchmakeAndTally(bool slowMode);
 
+void handleSimulateSubCommand(const string& command, bool rankLossPrevention, bool streakBonusEnabled);
+
 // Declare more functions as needed
 
 #endif
