@@ -1,0 +1,12 @@
+Index: bool = b, int = i
+b antiboosting = 1 
+b randomstartingmmr = 0 
+b ranklossprevention = 1 
+b streakbonus = 1 
+b matchmakespeed = 1 
+i mmrlimit = 700 
+i squads = 1000 
+i initialrange = 25 
+i initialmmr = 2100 
+i games = 8500 
+i ranklosspreventiongames = 75 

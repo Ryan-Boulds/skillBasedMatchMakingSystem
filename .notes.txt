@@ -1,0 +1,30 @@
+issues:
+When you do: "set settingname"  is breaks the program needing a reset to the default settings.
+
+
+
+
+ideas:
+Make a minimum MMR that can be achieved so that players who are especially unlucky can eventually recover their rank.
+This option could be enabled or disabled as well as the MMR being able to be changed.  Maybe it could be set to 0 MMR, or maybe 500 or 1000 or something.
+
+Instead of using squadsInQue containing all the players, I'd like to make it where I can have a database with maybe a million players, then I can randomly keep added players to
+squadsInQue to make for faster processing and a larger test dataset.
+(I realize that Queue is how it is spelled, but I made that typo a while ago, and it has just stuck around due to time.)
+
+People who are playing in lobbies much higher than their rank will lose less, and gain more MMR points per game.  This will allow for them to
+catch up with whoever they are playing with who is gaining and losing at the normal rate.
+
+
+suggestions from people: 
+
+cheaters vs cheaters?
+high Winstreaks vs winstreaks
+comment a person named iso_R6 on twitch:
+"I havent read anything but maybe something that matchmakes winning streaks against each other more often and losing streaks more often,
+or puts people who are on opposite streaks on the same time"
+
+
+observations: 
+With random MMR handed out at the start, it does become a bell curve over time. Even without manipulating MMR for players based off
+of the oposite team.  I would not have thought that.  I suppose that is the antiboosting system calculating the average vss the actual average.
