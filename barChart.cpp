@@ -13,8 +13,6 @@ using namespace std;
 map<string, string> rankColors = {
     {"Champion", "\033[38;2;196;0;98m"},         // Red
     {"Diamond 1", "\033[38;2;232;105;255m"},        // Diamond
-    {"Diamond 2", "\033[38;2;232;105;255m"},        // Diamond
-    {"Diamond 3", "\033[38;2;232;105;255m"},        // Diamond
     {"Platinum 1", "\033[38;2;136;247;236m"}, // Bright blue
     {"Platinum 2", "\033[38;2;136;247;236m"}, // Bright blue
     {"Platinum 3", "\033[38;2;136;247;236m"}, // Bright blue

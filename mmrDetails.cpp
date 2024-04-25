@@ -7,9 +7,7 @@ using namespace std;
 string rankChecker(int playerMMR, int matchesPlayed) {
 
 	if (playerMMR >= 5000) return "Champion";
-	if (playerMMR >= 4800) return "Diamond 1";
-	if (playerMMR >= 4600) return "Diamond 2";
-	if (playerMMR >= 4400) return "Diamond 3";
+	if (playerMMR >= 4400) return "Diamond 1";
 	if (playerMMR >= 4000) return "Platinum 1";
 	if (playerMMR >= 3600) return "Platinum 2";
 	if (playerMMR >= 3200) return "Platinum 3";

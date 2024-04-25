@@ -1,6 +1,6 @@
 Index: bool = b, int = i
 b antiboosting = 1 
-b randomstartingmmr = 0 
+b randomstartingmmr = 1 
 b ranklossprevention = 1 
 b streakbonus = 1 
 b matchmakespeed = 1 
